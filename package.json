@@ -1,0 +1,22 @@
+{
+  "name": "test-webdriver",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "wdio": "wdio run ./test.conf.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@wdio/cli": "^8.11.2",
+    "webdriverio": "^8.11.2"
+  },
+  "devDependencies": {
+    "@wdio/local-runner": "^8.11.2",
+    "@wdio/mocha-framework": "^8.11.0",
+    "@wdio/selenium-standalone-service": "^8.11.0",
+    "@wdio/spec-reporter": "^8.11.2"
+  }
+}
