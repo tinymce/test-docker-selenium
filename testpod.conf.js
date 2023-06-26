@@ -35,8 +35,7 @@ exports.config = {
     }]
   ],
   capabilities: [
-    { browserName: 'chrome' },
-    { browserName: 'firefox' }
+    { browserName: 'chrome' }
   ],
   // Testing frameworks
   // Install wdio adapters for the pack used
