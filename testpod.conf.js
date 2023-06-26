@@ -2,7 +2,6 @@ exports.config = {
   runner: 'local',
   // Server configurations
   hostname: 'localhost',
-  port: 4444,
   path: '/',
   // Test files
   specs: [
