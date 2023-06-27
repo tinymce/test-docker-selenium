@@ -29,21 +29,24 @@ exports.config = {
   // Test runner services
   // Install adapters for the specified services
   services: [
-    ['selenium-standalone', {
-      args: {
-        seleniumArgs: ['--host', '127.0.0.1']
-      }
-    }]
+    // ['selenium-standalone', {
+    //   args: {
+    //     seleniumArgs: ['--host', '127.0.0.1']
+    //   }
+    // }]
   ],
-  capabilities: [{
-    browserName: 'chrome',
-    port: 4445
+  capabilities: [
+    {
+      browserName: 'chrome',
+      port: 4445
       // capabilities for local browser web tests
       // browserName: 'chrome' // or "firefox", "microsoftedge", "safari"
-  }, {
-    browserName: 'firefox',
-    port: 4446
-  }],
+    },
+    // {
+    //   browserName: 'firefox',
+    //   port: 4446
+    // }
+  ],
   // Testing frameworks
   // Install wdio adapters for the pack used
   framework: 'mocha',

@@ -28,11 +28,11 @@ exports.config = {
   // Test runner services
   // Install adapters for the specified services
   services: [
-    ['selenium-standalone', {
-      args: {
-        seleniumArgs: ['--host', '127.0.0.1']
-      }
-    }]
+    // ['selenium-standalone', {
+    //   args: {
+    //     seleniumArgs: ['--host', '127.0.0.1']
+    //   }
+    // }]
   ],
   capabilities: [
     { browserName: 'chrome' }
