@@ -4,7 +4,7 @@
 standardProperties()
 
 timestamps {
-  tinyPods.nodeChrome() {
+  tinyPods.nodeBrowser() {
     stage("projects") {
       tinyGit.withGitHubSSHCredentials {
         dir('bedrock') {
