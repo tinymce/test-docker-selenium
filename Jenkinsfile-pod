@@ -6,7 +6,6 @@ standardProperties()
 timestamps {
   tinyPods.nodeChrome() {
     stage("projects") {
-      tinyGit.addGitHubToKnownHosts()
       tinyGit.withGitHubSSHCredentials {
         dir('bedrock') {
           checkout([
