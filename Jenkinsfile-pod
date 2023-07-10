@@ -1,0 +1,65 @@
+#!groovy
+@Library('waluigi@feature/DEVOPS-817') _
+
+standardProperties()
+
+timestamps {
+  tinyPods.nodeChrome() {
+    stage("projects") {
+      tinyGit.addGitHubToKnownHosts()
+      tinyGit.withGitHubSSHCredentials {
+        dir('bedrock') {
+          checkout([
+            $class: 'GitSCM',
+            branches: [
+              [name: 'feature/DEVOPS-813']
+            ],
+            userRemoteConfigs: [
+              [ credentialsId: 'jenkins2-github', url: "git@github.com:tinymce/bedrock.git"]
+            ],
+            extensions: [
+              [ $class: 'LocalBranch', localBranch: "**"]
+            ]
+          ])
+        }
+
+        dir('tinymce-vue') {
+          checkout([
+            $class: 'GitSCM',
+            branches: [
+              [name: 'spike/DEVOPS-813']
+            ],
+            userRemoteConfigs: [
+              [ credentialsId: 'jenkins2-github', url: "git@github.com:tinymce/tinymce-vue.git"]
+            ],
+            extensions: [
+              [ $class: 'LocalBranch', localBranch: "**"]
+            ]
+          ])
+        }
+      }
+    }
+
+    stage('build') {
+      dir('bedrock') {
+        yarnInstall()
+        sh '''
+        yarn build-common
+        yarn build-client
+        yarn build-runner
+        yarn build-server
+        '''
+      }
+
+      dir('tinymce-vue') {
+        yarnInstall()
+      }
+    }
+
+    stage('test') {
+      dir('tinymce-vue') {
+        sh 'yarn test-sel'
+      }
+    }
+  }
+}
